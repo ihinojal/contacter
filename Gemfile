@@ -44,3 +44,7 @@ end
 
 group :development do
 end
+
+# Usar slim para generar HTML usando plantillas
+# http://www.rubydoc.info/gems/slim/frames
+gem 'slim-rails'

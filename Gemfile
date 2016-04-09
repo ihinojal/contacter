@@ -55,3 +55,7 @@ end
 # Usar slim para generar HTML usando plantillas
 # http://www.rubydoc.info/gems/slim/frames
 gem 'slim-rails'
+
+# Paperclip is intended as an easy file attachment library for
+# ActiveRecord https://github.com/thoughtbot/paperclip
+gem "paperclip", "~> 5.0.0.beta1"

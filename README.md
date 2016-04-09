@@ -22,6 +22,15 @@ Via Cliente se pueden:
 
 ## Como instalar contacter?
 
+Necesitas instalar imagemagick. Para ello..
+Si estas en Mac OS X:
+
+    $ brew install imagemagick
+
+Si estas cualquier distrubucion basada en debian:
+
+    $ sudo apt-get install imagemagick -y
+
 Descarga el codigo de github con:
 
      git clone ...

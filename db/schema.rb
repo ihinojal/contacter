@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160409151902) do
+ActiveRecord::Schema.define(version: 20160409165106) do
+
+  create_table "contacts", force: :cascade do |t|
+    t.integer  "user_id",              null: false
+    t.string   "name"
+    t.string   "surname"
+    t.string   "email"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.integer  "type_of_contact"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "contacts", ["email", "user_id"], name: "only_one_email_per_contact", unique: true
+  add_index "contacts", ["name"], name: "index_contacts_on_name"
+  add_index "contacts", ["surname"], name: "index_contacts_on_surname"
+  add_index "contacts", ["user_id"], name: "index_contacts_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

@@ -12,6 +12,24 @@
 /db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/log/*
-!/log/.keep
+/log/*.log
 /tmp
+
+*.swp
+*.env*
+app/assets/images/*sprites*.png
+
+# dinamic genereted sitemap
+public/sitemap.xml.gz
+
+# paperclip
+public/system/*
+
+docs/TODO.md
+
+spec/examples.txt
+
+# Ignoring rvmrc because I'm using .ruby-version and .ruby-gemset to
+# control the version of the ruby is going to be in production.
+# The file .rvmrc will be used in local to switch from MRI or jRuby
+.rvmrc

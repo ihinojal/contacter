@@ -59,3 +59,6 @@ gem 'slim-rails'
 # Paperclip is intended as an easy file attachment library for
 # ActiveRecord https://github.com/thoughtbot/paperclip
 gem "paperclip", "~> 5.0.0.beta1"
+
+# Devise is a flexible user authentication solution for Rails
+gem 'devise'

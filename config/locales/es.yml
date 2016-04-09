@@ -21,3 +21,8 @@
 
 es:
   hello: "Hola Mundo"
+  layouts:
+    header:
+      login: Iniciar sesión
+      sign-up: Registrarme
+      log-out: Cerrar sessión

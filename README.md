@@ -81,3 +81,17 @@ contacto determinado.
       "picture":"/pictures/original/missing.png",
       "type_of_contact":"friend",
       "url":"http://localhost:3000/contacts/1.json"}
+
+
+## Cliente API
+
+  Se incluye un cliente para hacer peticiones a la API usando JSON.
+  A modo de ejemplo puedes ejecutar la consola de rails:
+
+    $ rails console
+      > c = ContacterApi.new('http://localhost:3000')
+        #=> #<ContacterApi @host="http://localhost:3000">
+      > c.get_user_contacts 1
+        #=> [{"id"=>1, "user_id"=>1, "name"=>"Pepe", "surname"=>"Gutierrez", "email"=>"pepe@example.com", "picture"=>"/pictures/original/missing.png", "type_of_contact"=>"friend", "url"=>"http://localhost:3000/contacts/1.json"}]
+      > c.get_contact 1
+        #=> {"id"=>1, "user_id"=>1, "name"=>"Pepe", "surname"=>"Gutierrez", "email"=>"pepe@example.com", "picture"=>"/pictures/original/missing.png", "type_of_contact"=>"friend", "created_at"=>"2016-04-10T17:34:57.620Z", "updated_at"=>"2016-04-10T17:34:57.620Z"}

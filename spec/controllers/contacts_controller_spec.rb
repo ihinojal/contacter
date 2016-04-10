@@ -32,6 +32,34 @@ RSpec.describe ContactsController, type: :controller do
       get :index, {user_id: another_user}
       expect(assigns(:contacts)).not_to include(contact)
     end
+    describe 'buscar contacto por nombre' do
+      context 'existente' do
+        it 'es encontrado' do
+          get :index, {user_id: contact.user, search: contact.name}
+          expect(assigns(:contacts).length).to eq(1)
+        end
+      end
+      context 'inexistente' do
+        it 'no es encontrado' do
+          get :index, {user_id: contact.user, search: 'nombreindexistente'}
+          expect(assigns(:contacts).length).to eq(0)
+        end
+      end
+    end
+    describe 'buscar contacto por apellido' do
+      context 'existente' do
+        it 'es encontrado' do
+          get :index, {user_id: contact.user, search: contact.surname}
+          expect(assigns(:contacts).length).to eq(1)
+        end
+      end
+      context 'inexistente' do
+        it 'es encontrado' do
+          get :index, {user_id: contact.user, search: 'apellidoindexistente'}
+          expect(assigns(:contacts).length).to eq(0)
+        end
+      end
+    end
   end
 
   describe "GET #show" do

@@ -3,7 +3,12 @@ class ContactsController < ApplicationController
 
   # GET /users/:user_id/contacts(.:format)
   def index
-    @contacts = Contact.where(user_id: params[:user_id])
+    if params[:search]
+      @contacts = Contact.where(user_id: params[:user_id])
+        .search(params[:search])
+    else
+      @contacts = Contact.where(user_id: params[:user_id])
+    end
   end
 
   # GET /contacts/:id(.:format)

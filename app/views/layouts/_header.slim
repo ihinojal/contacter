@@ -1,5 +1,11 @@
 -if user_signed_in?
-  =link_to t('.log-out'), destroy_user_session_path, method: :delete
+  =>link_to t('.new-contact'), new_contact_path
+  =>link_to t('.list-contacts'), user_contacts_path(current_user)
+  =>link_to t('.log-out'), destroy_user_session_path, method: :delete
+  =form_tag user_contacts_path(current_user), method: 'get' do
+    p
+      =text_field_tag :search, params[:search]
+      =submit_tag "Buscar en mis contactos", search: nil
 -else
-  =link_to t('.login'), new_user_session_path
-  =link_to t('.sign-up'), new_user_registration_path
+  =>link_to t('.login'), new_user_session_path
+  =>link_to t('.sign-up'), new_user_registration_path

@@ -26,6 +26,11 @@ class Contact < ActiveRecord::Base
   # DELEGATION & ALIAS
   # ##################################################################
   # SCOPES
+  # NOTE: Usar la sintaxis de where(['?', valor]), ya que se escapara
+  # y no tiene problemas de SQL inyection
+  scope :search, -> (search) {
+    where(['name LIKE ? OR surname LIKE ?', "%#{search}%", "%#{search}%"])
+  }
   # ##################################################################
   # CLASS METHODS
   # ##################################################################

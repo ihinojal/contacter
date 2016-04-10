@@ -44,3 +44,40 @@ Ejecuta el servidor en modo development con:
      $ rails server
 
 Ahora podrás ver la web en http://localhost:3000
+
+
+## API contacter
+
+Contacter tiene una API sencilla que permite recuperar todos los
+contactos de un usuario a partir de su ID, o ver el detalle de un
+contacto determinado.
+
+#### Listar contactos de un usuario
+
+  Sintaxis: GET /users/:user_id/contacts.json
+  Ejemplo: GET /users/1/contacs.json
+  Respuesta de ejemplo:
+    [
+      {"id":1,
+       "user_id":1,
+       "name":"Pepe",
+       "surname":"Gutierrez",
+       "email":"pepe@example.com",
+       "picture":"/pictures/original/missing.png",
+       "type_of_contact":"friend",
+       "url":"http://localhost:3000/contacts/1.json"}
+    ]
+
+#### Listar un contacto determinado
+
+  Sintaxis: GET /contacts/:id.json
+  Ejemplo: GET /contacts/3.json
+  Respuesta de ejemplo:
+    {"id":1,
+      "user_id":1,
+      "name":"Pepe",
+      "surname":"Gutierrez",
+      "email":"pepe@example.com",
+      "picture":"/pictures/original/missing.png",
+      "type_of_contact":"friend",
+      "url":"http://localhost:3000/contacts/1.json"}

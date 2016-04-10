@@ -1,4 +1,4 @@
-CONTACTER
+# CONTACTER
 
 ## Que es contacter?
 Esta aplicación Ruby on Rails permite a un usuario registrado guardar
@@ -33,9 +33,9 @@ Si estas cualquier distrubucion basada en debian:
 
 Descarga el codigo de github con:
 
-     git clone ...
+     $ git clone git@github.com:ihinojal/contacter.git
 
-Descarga las gemas dependientes con:
+Descarga las gemas dependientes del proyecto con:
 
      $ bundle install
 
@@ -54,9 +54,12 @@ contacto determinado.
 
 #### Listar contactos de un usuario
 
-  Sintaxis: GET /users/:user_id/contacts.json
-  Ejemplo: GET /users/1/contacs.json
+  Sintaxis: `GET /users/:user_id/contacts.json`
+
+  Ejemplo: `GET /users/1/contacs.json`
+
   Respuesta de ejemplo:
+
     [
       {"id":1,
        "user_id":1,
@@ -70,9 +73,12 @@ contacto determinado.
 
 #### Listar un contacto determinado
 
-  Sintaxis: GET /contacts/:id.json
-  Ejemplo: GET /contacts/3.json
+  Sintaxis: `GET /contacts/:id.json`
+
+  Ejemplo: `GET /contacts/3.json`
+
   Respuesta de ejemplo:
+
     {"id":1,
       "user_id":1,
       "name":"Pepe",
@@ -95,3 +101,11 @@ contacto determinado.
         #=> [{"id"=>1, "user_id"=>1, "name"=>"Pepe", "surname"=>"Gutierrez", "email"=>"pepe@example.com", "picture"=>"/pictures/original/missing.png", "type_of_contact"=>"friend", "url"=>"http://localhost:3000/contacts/1.json"}]
       > c.get_contact 1
         #=> {"id"=>1, "user_id"=>1, "name"=>"Pepe", "surname"=>"Gutierrez", "email"=>"pepe@example.com", "picture"=>"/pictures/original/missing.png", "type_of_contact"=>"friend", "created_at"=>"2016-04-10T17:34:57.620Z", "updated_at"=>"2016-04-10T17:34:57.620Z"}
+
+
+## Cómo ejecutar las 'specs'
+
+  En la raiz donde se encuentre descargada ejecuta:
+
+    $ rspec --format documentation
+

@@ -4,7 +4,7 @@
   =>link_to t('.log-out'), destroy_user_session_path, method: :delete
   =form_tag user_contacts_path(current_user), method: 'get' do
     p
-      =text_field_tag :search, params[:search]
+      =text_field_tag :search, params[:search], placeholder: 'Nombre o apellido'
       =submit_tag "Buscar en mis contactos", search: nil
 -else
   =>link_to t('.login'), new_user_session_path

@@ -12,7 +12,6 @@ RSpec.describe "contacts/new", type: :view do
       assert_select "input#contact_surname[name=?]", "contact[surname]"
       assert_select "input#contact_email[name=?]", "contact[email]"
       assert_select "input#contact_picture[name=?]", "contact[picture]"
-      assert_select "input#contact_type_of_contact[name=?]", "contact[type_of_contact]"
     end
   end
 end

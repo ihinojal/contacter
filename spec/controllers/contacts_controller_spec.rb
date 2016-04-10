@@ -205,7 +205,7 @@ RSpec.describe ContactsController, type: :controller do
 
       it "redirige al listado de contactos de este usuario" do
         delete :destroy, {id: contact.to_param}
-        expect(response).to redirect_to(contacts_url(contact.user))
+        expect(response).to redirect_to(user_contacts_path(contact.user))
       end
     end
   end

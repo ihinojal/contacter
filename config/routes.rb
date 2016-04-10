@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  scope '/users/:user_id' do
-    resources :contacts, only: [:index]
-  end
   resources :contacts, except: [:index]
+  scope '/users/:user_id' do
+    resources :contacts, only: [:index], as: 'user_contacts'
+  end
 
   root 'home#welcome'
   # The priority is based upon order of creation: first created -> highest priority.

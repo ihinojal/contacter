@@ -28,10 +28,29 @@ es:
       success: 'Contacto actualizado'
     destroy:
       success: 'Contacto eliminado'
+    types:
+      friend: Amigo
+      family: Familia
+      coworker: Compañero
   layouts:
     header:
       login: Iniciar sesión
       sign-up: Registrarme
       log-out: Cerrar sessión
       new-contact: Añadir nuevo contacto
-      list-contacts: Listar contactos
+      list-contacts: Mis contactos
+  activerecord:
+    models:
+      contact: Contacto
+    attributes:
+      contact:
+        name: Nombre
+        surname: Apellido
+        picture: Foto
+        email: Email
+        type_of_contact: Tipo de contacto
+  errors:
+    messages:
+      have_errors:
+        one: Se ha producido un error
+        other: Se han producido varios errores

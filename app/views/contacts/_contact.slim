@@ -1,0 +1,21 @@
+.user
+  p
+    strong=>t('activerecord.attributes.contact.name')
+    = contact.name
+  p
+    strong=>t('activerecord.attributes.contact.surname')
+    = contact.surname
+  p
+    strong=>t('activerecord.attributes.contact.email')
+    = contact.email
+  p
+    strong=>t('activerecord.attributes.contact.picture')
+    =image_tag contact.picture
+  p
+    strong=>t('activerecord.attributes.contact.type_of_contact')
+    =t("contacts.types.#{contact.type_of_contact}")
+
+  -if user_signed_in? and contact.user_id = current_user.id
+    = link_to 'Mostrar', contact
+    = link_to 'Editar', edit_contact_path(contact)
+    = link_to 'Eliminar', contact, data: {:confirm => 'Estas seguro?'}, :method => :delete

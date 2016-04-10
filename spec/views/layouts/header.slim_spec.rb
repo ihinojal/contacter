@@ -18,6 +18,14 @@ RSpec.describe "layouts/_header.slim", type: :view do
       sign_in user
       render
     end
+    it 'aparece link de "Nuevo contacto"' do
+      expect(rendered)
+      .to have_selector("[href='#{new_contact_path}']")
+    end
+    it 'aparece link de "Listar contactos"' do
+      expect(rendered)
+      .to have_selector("[href='#{user_contacts_path(user)}']")
+    end
     it 'aparece link de "Cerrar sesión"' do
       expect(rendered)
       .to have_selector('[href="/users/sign_out"]')

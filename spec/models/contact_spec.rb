@@ -15,6 +15,14 @@ RSpec.describe Contact, type: :model do
         expect( contact ).to be_valid
       end
     end
+    describe 'puede crearse/modificarse con telefonos asociados' do
+      it 'de forma satisfactoria' do
+        expect{ FactoryGirl.create(:contact, phones_attributes: [
+                                 {number: '655 55 55 55'},
+                                 {number: '91 555 55 55'} ])
+        }.to change{Phone.count}.by(2)
+      end
+    end
     describe 'con el atributo' do
       describe 'usuario' do
         it 'sin estar presente, no sera valido' do

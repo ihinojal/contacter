@@ -42,7 +42,10 @@ es:
   activerecord:
     models:
       contact: Contacto
+      contact: Teléfono
     attributes:
+      phone:
+        number: Numero
       contact:
         name: Nombre
         surname: Apellido

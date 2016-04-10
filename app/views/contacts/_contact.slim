@@ -14,6 +14,12 @@
   p
     strong=>t('activerecord.attributes.contact.type_of_contact')
     =t("contacts.types.#{contact.type_of_contact}")
+  -if contact.phones.any?
+    strong=>t('activerecord.models.phone')
+    -contact.phones.each do |phone|
+      span=> phone.number
+
+
 
   -if user_signed_in? and contact.user_id = current_user.id
     = link_to 'Mostrar', contact

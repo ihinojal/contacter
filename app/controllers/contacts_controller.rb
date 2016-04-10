@@ -19,16 +19,21 @@ class ContactsController < ApplicationController
   # GET /contacts/new(.:format)
   def new
     @contact = Contact.new
+    3.times do
+      @contact.phones.build
+    end
   end
 
   # GET /contacts/:id/edit(.:format)
   def edit
     @contact = Contact.find( params[:id] )
+    3.times do
+      @contact.phones.build
+    end
   end
 
   # POST /contacts(.:format)
   def create
-
     @contact = current_user.contacts.build(contact_params)
 
     respond_to do |format|
@@ -70,7 +75,10 @@ class ContactsController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:user_id, :name, :surname, :email,
-                                      :picture, :type_of_contact)
+      params.require(:contact)
+      .permit(:user_id, :name, :surname, :email,
+        :picture, :type_of_contact,
+        phones_attributes: [:id, :number, :_destroy]
+      )
     end
 end

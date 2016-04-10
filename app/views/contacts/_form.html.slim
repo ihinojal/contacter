@@ -18,13 +18,15 @@
     =f.select :type_of_contact,
       Contact::type_of_contacts.keys.map{ |tc|                      \
         [t("contacts.types.#{tc}"),tc] }
-  = f.fields_for :phones do |ff|
-    .field
-      =ff.label :number
-      =ff.text_field :number
-      /=ff.hidden_field :contact_id, @contact.id
-      -if ff.object.persisted?
-        =ff.check_box :_destroy
-        =ff.label :_destroy, "Eliminar este numero"
+  #phones-form
+    = f.fields_for :phones do |ff|
+      .field
+        =>ff.label :number
+        =ff.text_field :number
+        /=ff.hidden_field :contact_id, @contact.id
+        -if ff.object.persisted?
+          =ff.check_box :_destroy
+          =ff.label :_destroy, "Eliminar este numero"
+  =link_to t('.add-new-phone'), '#', class: 'add-new-phone'
 
   .actions = f.submit

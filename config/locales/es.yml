@@ -32,6 +32,8 @@ es:
       friend: Amigo
       family: Familia
       coworker: Compañero
+    form:
+      add-new-phone: Añadir teléfono adicional
   layouts:
     header:
       login: Iniciar sesión
@@ -42,7 +44,7 @@ es:
   activerecord:
     models:
       contact: Contacto
-      contact: Teléfono
+      phone: Teléfono
     attributes:
       phone:
         number: Numero
